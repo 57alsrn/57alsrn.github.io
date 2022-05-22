@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply-mapping">
+
+	<!-- 댓글 조회 -->
+	<select id="R_LIST" parameterType="ReplyVo"
+		resultType="ReplyVo">
+		select
+		*
+		from reply
+		where "pcode" = #{pcode}
+		order by "bno" desc
+	</select>
+
+	<!-- 댓글 작성 -->
+	<insert id="R_INSERT" parameterType="ReplyVo">
+		insert into reply("pcode", "bno", "userID", "content", "rdate")
+		values(#{pcode}, seq_refly.nextval, #{userID}, #{content}, sysdate)
+	</insert>
+
+
+	<!-- 댓글 삭제 -->
+	<delete id="R_DELETE"
+		parameterType="ReplyVo">
+		delete from reply
+		where "pcode" = #{pcode}
+		and "bno" = ${bno}
+	</delete>
+
+    
+	
+	
+</mapper>
