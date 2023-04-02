@@ -245,15 +245,19 @@
         })
     }
 
+    function logOut(){
+        if(confirm('정말로 로그아웃 하시겠습니까?')){
+            window.location.href = "/logout.do"
+        }
+        else{
+            return false;
+        }
+    }
+
 </script>
 
 <body>
-<div>
-    <p>${id.ID}</p> <br>
-    <p>${id.PW}</p> <br>
-    <p>${id.NAME}</p> <br>
 
-</div>
 <c:if test="${id == null}">
     <br><br><br>
 
@@ -319,6 +323,11 @@
     </div>
 </c:if>
 <div><c:if test="${id != null}">
+    <div>
+        <p>아이디 : ${id.ID}</p> <br>
+        <p>비밀번호 : ${id.PW}</p> <br>
+        <p>사용자 이름 :${id.NAME}</p> <br>
+    </div>
     <button type="button" class="btn btn-light" onclick="logOut()">로그아웃</button>
 </c:if>
 </div>

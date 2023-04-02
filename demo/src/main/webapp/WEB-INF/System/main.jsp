@@ -100,19 +100,23 @@
 
     }
     function logOut(){
-       if(confirm('정말로 로그아웃 하시겠습니까?')){
-           sessionStorage.clear();
-           //alert('로그아웃 완료')
-           window.location.href = "";
-       }
-       else{
-           return false;
-       }
+        if(confirm('정말로 로그아웃 하시겠습니까?')){
+            window.location.href = "/logout.do"
+        }
+        else{
+            return false;
+        }
     }
 </script>
 
 <body>
+
 <c:if test="${id != null}">
+    <div>
+        <p>아이디 : ${id.ID}</p> <br>
+        <p>비밀번호 : ${id.PW}</p> <br>
+        <p>사용자 이름 :${id.NAME}</p> <br>
+    </div>
     <button type="button" class="btn btn-light" onclick="logOut()">로그아웃</button>
 </c:if>
 

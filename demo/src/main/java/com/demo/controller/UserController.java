@@ -90,6 +90,15 @@ public class UserController {
 
         return loginRst;
     }
+
+    //로그아웃
+    @RequestMapping("/logout.do")
+    String logout(HttpServletRequest request) throws Exception {
+        HttpSession  session = request.getSession();
+        // 세션 제거
+        session.invalidate();
+        return "index";
+    }
 //    //메인페이지 조회
 //    @ResponseBody
 //    @RequestMapping(value="/list.do")
