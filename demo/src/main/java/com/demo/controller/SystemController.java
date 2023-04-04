@@ -22,7 +22,7 @@ public class SystemController {
 
     @RequestMapping("/main.do")
     public String Main(){
-        return "../System/main";
+        return "main4";
     }
 
 }
