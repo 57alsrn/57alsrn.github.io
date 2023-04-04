@@ -62,7 +62,10 @@
                 <a class="nav-link" href="#">Cart</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mx-2" href="#" id="logOut" onclick="logOut()">LogOut</a>
+                <a class="nav-link mx-2" href="#" id="myPage" >My page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mx-2" href="#" id="logOut" onclick="logOut()">Log out</a>
             </li>
         </ul>
     </div>
