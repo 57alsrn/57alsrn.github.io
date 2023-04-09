@@ -18,7 +18,9 @@
     <!-- 부트스트랩 CDN 추가 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="../../static/css/styles.css" rel="stylesheet" />
+
 </head>
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
@@ -37,23 +39,23 @@
 <body>
 <!-- 네비게이션 바 추가 -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand ml-2" href="#">Shopping Mall</a>
+    <a class="navbar-brand ml-3" href="/main.do">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="/notice.do">Notice</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="/pd_list.do">List</a>
             </li>
 
         </ul>
         <!-- 검색창 추가 -->
         <form class="form-inline ml-auto">
-            <input style="width : 350px" class="form-control mr-sm-4" type="search" placeholder="검색어를 입력해주세요." aria-label="Search">
+            <input style="width : 350px" class="form-control mr-sm-4" id="sSearchBar" type="search" placeholder="검색어를 입력해주세요." aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <!-- 장바구니와 로그인 버튼 추가 -->

@@ -35,6 +35,11 @@ public class UserController {
 
         return "index";
     }
+    // 로그인 성공시
+    @RequestMapping("/main.do")
+    public String Main(){
+        return "../System/main";
+    }
 
     //아이디 중복체크
     @ResponseBody
@@ -83,6 +88,7 @@ public class UserController {
         HashMap<String, Object> loginRst = userService.login(paramMap);
         if(loginRst != null){
             session.setAttribute("id", loginRst);
+            session.setAttribute("admin", loginRst.get("ADMIN"));
         }
         System.out.println(loginRst);
         //response.getWriter().println(loginRst);
@@ -99,45 +105,6 @@ public class UserController {
         session.invalidate();
         return "index";
     }
-//    //메인페이지 조회
-//    @ResponseBody
-//    @RequestMapping(value="/list.do")
-//    public HashMap<String, Object> refundList(Model model, @RequestParam Map<String, Object> paramMap,
-//                                              HttpServletRequest request,
-//                                              HttpServletResponse response,
-//                                              HttpSession session)
-//            throws Exception {
-//
-//        logger.info("+ Start " + className + ".initComnCod");
-//
-////				  	  String loginID = (String) session.getAttribute("loginId");
-////					  String sname = (String)paramMap.get("sname");
-////					  String stDate =  (String)paramMap.get("stDate");
-////					  String edDate =  (String)paramMap.get("edDate");
-////
-////
-//        String id = (String)paramMap.get("id");
-//        paramMap.put("id", id);
-//
-//
-//        logger.info("   - paramMap ssss  : " + paramMap);
-//
-//
-//        List<MainVo> MainVo = MainService.list(paramMap);
-//
-//        HashMap<String, Object> map = new HashMap<String, Object>();
-//        map.put("MainVo", MainVo);
-//
-//
-//
-//        model.addAttribute("MainVo", MainVo);
-//
-//        logger.info("+ End " + className + ".initComnCod");
-//        System.out.println(MainVo);
-//        System.out.println(map);
-//        return map;
-//
-//    }
 
 
 }

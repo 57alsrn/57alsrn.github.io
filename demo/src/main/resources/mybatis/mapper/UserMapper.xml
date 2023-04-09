@@ -27,7 +27,7 @@
 
 	<!--로그인-->
 	<select id = "login" resultType = "hashMap">
-		select id, name, pw
+		select *
 		from USERINFO
 		where #{id} = id
 		and #{pwd} = pw
