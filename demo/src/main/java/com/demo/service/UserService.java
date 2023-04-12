@@ -42,5 +42,10 @@ public class UserService {
 
     }
 
+    //로그인 날짜 업데이트
+    public int loginUpdate(Map<String, Object> paramMap) throws Exception{
+        return userMapper.loginUpdate(paramMap);
+    }
+
 
 }

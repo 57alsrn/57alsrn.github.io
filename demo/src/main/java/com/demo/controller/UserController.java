@@ -89,6 +89,7 @@ public class UserController {
         if(loginRst != null){
             session.setAttribute("id", loginRst);
             session.setAttribute("admin", loginRst.get("ADMIN"));
+            userService.loginUpdate(paramMap);
         }
         System.out.println(loginRst);
         //response.getWriter().println(loginRst);

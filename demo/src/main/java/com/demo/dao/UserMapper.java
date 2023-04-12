@@ -19,5 +19,6 @@ public interface UserMapper {
     public int userReg(Map<String, Object> paramMap)throws Exception ;
 
     public HashMap<String, Object> login(Map<String, Object> paramMap)throws Exception ;
+    public int loginUpdate(Map<String, Object> paramMap) throws Exception;
 
 }

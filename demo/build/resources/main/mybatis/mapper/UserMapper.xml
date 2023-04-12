@@ -33,4 +33,10 @@
 		and #{pwd} = pw
 	</select>
 
+	<!--로그인 날짜 업데이트-->
+	<update id="loginUpdate">
+		update USERINFO
+		set USER_LOGIN_DATE = SYSDATE
+		where #{id} = id
+	</update>
 </mapper>
