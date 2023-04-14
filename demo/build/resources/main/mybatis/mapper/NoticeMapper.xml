@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mapper DTD 선언 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.demo.dao.NoticeMapper">
+<!--	<select id = "regUser" resultType = "com.demo.vo.UserVo">-->
+<!--	select id, name-->
+<!--	 from login-->
+<!-- 	where 1=1-->
+<!--	and id Like '%' || #{id} || '%'-->
+
+<!--	</select>-->
+
+<!--공지사항 조회-->
+	<select id = "noticeList" resultType = "hashMap">
+		select
+		    NOT_CODE
+		,ID
+		,NOT_TITLE
+		,NOT_CONT
+		,TO_CHAR(NOT_DATE, 'YYYY-MM-DD hh24:mi:ss') as day
+		,NOT_VIEW
+		from NOTICE
+		where 1=1
+		ORDER BY NOT_CODE desc
+	</select>
+
+<!--공직사항 등록-->
+	<insert id="noticeSubmit" >
+	insert into NOTICE
+	values(
+	       (select count(NOT_CODE) + 1 from NOTICE)
+	        ,#{id}
+	        ,#{title}
+	        ,#{content}
+	        ,sysdate
+	        ,0
+		  )
+
+	</insert>
+
+
+
+</mapper>
