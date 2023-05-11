@@ -239,7 +239,7 @@
                 else{
 
                     window.location.href = "/main.do";
-                    alert('로그인 성공!')
+                    // alert('로그인 성공!')
                 }
             }
 

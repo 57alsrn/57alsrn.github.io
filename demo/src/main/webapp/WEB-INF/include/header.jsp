@@ -20,7 +20,14 @@
     <link href="../../static/css/styles.css" rel="stylesheet" />
 
 </head>
+<style>
+    @media (max-width: 991px) {
+        .form-inline.ml-auto {
+            display: none;
+        }
+    }
 
+</style>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->

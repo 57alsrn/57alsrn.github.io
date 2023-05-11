@@ -33,8 +33,12 @@
 <!-- Section-->
 <section class="py-5">
     <div>
+        <div style="margin: 0 0 10px 90%;">
+            <button type="button" class="btn btn-dark">등록하기</button>
+        </div>
+
         <table class="table table-hover">
-            <tr class="table-dark">
+            <tr class="table-dark" style="text-align: center">
                 <td>글번호</td>
                 <td>제목</td>
                 <td>상품이름</td>
@@ -47,15 +51,17 @@
 
             <c:forEach var="m"  items="${li}">
 
-                <tr class="table-dark">
-                    <td>${m.wnum}</td>
-                    <td><a href=${path}/pd_detail.do?pcode=${m.pcode}> ${m.title } </a></td>
-                    <td>${m.pname }</td>
-                    <td>${m.price }</td>
-                    <td>${m.quantity }</td>
-                    <td>${m.shipping }</td>
-                    <td>${m.userID}</td>
-                    <td><img src="${path}/product/files/${m.img}" width=35  height=35
+                <tr class="table-light text-center">
+                    <td>${m.L_CODE}</td>
+                    <td>${m.L_TITLE}
+                    <%--<a href=${path}/pd_detail.do?pcode=${m.pcode}> ${m.title } </a>--%>
+                    </td>
+                    <td>${m.PD_NAME }</td>
+                    <td>${m.PD_PRICE }</td>
+                    <td>${m.PD_AMOUNT }</td>
+                    <td>${m.DL_PRICE }</td>
+                    <td>${m.ID}</td>
+                    <td><img src="${path}/product/files/${m.IMG}" width=35  height=35
                              onclick="window.open(this.src)"/></td>
                 </tr>
 
@@ -69,7 +75,8 @@
                     <option value = "pname"> 상품이름 </option>
                 </select>
                 <input type = text name = ch2>
-                <input type = submit value ="검색하기">
+                <button class="btn btn-dark">검색하기</button>
+
             </form>
         </div>
 
