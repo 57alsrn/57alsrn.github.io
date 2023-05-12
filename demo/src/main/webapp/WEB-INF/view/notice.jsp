@@ -22,9 +22,6 @@
 </head>
 
 <script>
-  var pageNum = 1 ;  //현재 페이지 번호
-  var pageSize = 10;
-  var pagenumSize = 10;
 
   //onLoad event
   $(function (){
@@ -34,10 +31,12 @@
   })
 
   function init(){
-    noticeList(pageNum);
+    noticeList();
   }
   function noticeList(pageNum) {
     pageNum = pageNum || 1;
+    let pageSize = 10;
+    let pagenumSize = 10;
 
     $.ajax({
       url       : "/notice.do"
