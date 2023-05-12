@@ -17,10 +17,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css"/>
-  <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <title>mgKim</title>
 </head>
+
+<script>
+  var pageNum = 1 ;  //현재 페이지 번호
+  var pageSize = 10;
+  var pagenumSize = 10;
+
+  //onLoad event
+  $(function (){
+    init();
+
+
+  })
+
+  function init(){
+    noticeList(pageNum);
+  }
+  function noticeList(pageNum) {
+    pageNum = pageNum || 1;
+
+    $.ajax({
+      url       : "/notice.do"
+      , type    : "post"
+      , dataType: "text"
+      , data    : {
+        currentPage  : pageNum
+        , pageSize   : pageSize
+        , pagenumSize: pagenumSize
+
+      }
+      , success : function (data) {
+        console.log(data);
+
+      }
+      , error   : function () {
+        alert('등록실패')
+      }
+
+
+    })
+  }
+
+</script>
+
 <body>
 <!-- Header-->
 <header class="bg-dark py-2">

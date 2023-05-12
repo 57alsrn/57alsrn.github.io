@@ -20,6 +20,16 @@ public class NoticeController {
 
     @RequestMapping("/notice.do")
     String notice(Model model, @RequestParam Map<String, Object> paramMap) throws Exception {
+
+        int currentPage = Integer.parseInt((String)paramMap.get("currentPage"));
+        int pageSize = Integer.parseInt((String)paramMap.get("pageSize"));
+        int pageIndex = (currentPage - 1)*pageSize; //페이지 시작  row번호
+
+       // paramMap.put("pageIndex", pageIndex);
+        paramMap.put("pageSize", pageSize);
+        System.out.println(paramMap);
+        //int totalCnt =  noticeService.noticeCnt(paramMap);
+
         model.addAttribute("li", noticeService.noticeList(paramMap));
         return "notice";
     }

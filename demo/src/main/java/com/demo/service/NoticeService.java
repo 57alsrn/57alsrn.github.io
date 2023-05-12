@@ -22,4 +22,8 @@ public class NoticeService {
 
     }
 
+    public int noticeCnt(Map<String, Object> paramMap)throws Exception {
+        return noticeMapper.noticeCnt(paramMap);
+    }
+
 }
