@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mapper DTD 선언 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.demo.dao.ProductMapper">
+<!--	<select id = "regUser" resultType = "com.demo.vo.UserVo">-->
+<!--	select id, name-->
+<!--	 from login-->
+<!-- 	where 1=1-->
+<!--	and id Like '%' || #{id} || '%'-->
+
+<!--	</select>-->
+
+<!--공지사항 조회-->
+	<select id = "productList" resultType = "hashMap">
+		SELECT
+			L_CODE
+			 ,L_TITLE
+			 ,PD_NAME
+			 ,PD_PRICE
+			 ,PD_AMOUNT
+			 ,DL_PRICE
+			 ,ID
+			 ,IMG
+		FROM
+			PDLIST
+		ORDER BY L_CODE ASC
+	</select>
+
+<!--공직사항 등록-->
+<!--
+	<insert id="noticeSubmit" >
+	insert into NOTICE
+	values(
+	       (select count(NOT_CODE) + 1 from NOTICE)
+	        ,#{id}
+	        ,#{title}
+	        ,#{content}
+	        ,sysdate
+	        ,0
+		  )
+
+	</insert>
+-->
+
+
+
+</mapper>
