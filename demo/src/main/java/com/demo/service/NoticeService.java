@@ -17,6 +17,10 @@ public class NoticeService {
         return  noticeMapper.noticeList(paramMap);
 
     }
+    public List<?> noticeSearch(Map<String, Object> paramMap) throws Exception {
+        return  noticeMapper.noticeList(paramMap);
+
+    }
     public void noticeSubmit(Map<String, Object> paramMap) throws Exception {
          noticeMapper.noticeSubmit(paramMap);
 

@@ -25,21 +25,23 @@
 
   //onLoad event
   $(function (){
-    init();
-
+    noticeList();
 
   })
 
+
+
   function init(){
-    noticeList();
+
   }
+  //공지 리스트
   function noticeList(pageNum) {
     pageNum = pageNum || 1;
     let pageSize = 10;
     let pagenumSize = 10;
 
     $.ajax({
-      url       : "/notice.do"
+      url       : "/noticeList.do"
       , type    : "post"
       , dataType: "text"
       , data    : {
@@ -49,11 +51,31 @@
 
       }
       , success : function (data) {
-        console.log(data);
+        console.log(data)
 
       }
       , error   : function () {
         alert('등록실패')
+      }
+
+
+    })
+  }
+  function sList(){
+    let sName = $('#sName').val();
+    $.ajax({
+      url       : "/noticeSearch.do"
+      , type    : "post"
+      , dataType: "text"
+      , data    : {
+        sName  : sName
+      }
+      , success : function (data) {
+        console.log(data)
+
+      }
+      , error   : function () {
+        alert('검색실패')
       }
 
 
@@ -98,15 +120,13 @@
 
     </table>
     <div style="text-align: center">
-      <form action = "${path}/pd_list.do">
         <select  name = ch1>
           <option value = "title"> 제 목 </option>
           <option value = "pname"> 상품이름 </option>
         </select>
-        <input type = text name = ch2>
-        <input class="btn btn-dark" type = submit value ="검색하기">
+        <input type = text id="sName" name = ch2>
 
-      </form>
+      <input class="btn btn-dark" type = submit  onclick="sList();" value ="검색하기">
       <br>
       <c:if test="${id.ADMIN eq 1}">
         <input class="btn text-black bg-white btn-outline-secondary" onclick="location.href='/noticeReg.do'" value ="등록하기">

@@ -21,20 +21,31 @@ public class NoticeController {
     @Autowired
     NoticeService noticeService;
 
-
     @RequestMapping("/notice.do")
-    public String notice(Model model, @RequestParam Map<String, Object> paramMap) throws Exception {
-        System.out.println(paramMap);
-        int currentPage = Integer.parseInt((String)paramMap.get("currentPage"));
-        int pageSize = Integer.parseInt((String)paramMap.get("pageSize"));
-        int pageIndex = (currentPage - 1)*pageSize; //페이지 시작  row번호
+    public String notice(){
+        return "notice";
+    }
 
-       // paramMap.put("pageIndex", pageIndex);
-        paramMap.put("pageSize", pageSize);
+    @RequestMapping("/noticeList.do")
+    public String noticeList(Model model, @RequestParam Map<String, Object> paramMap) throws Exception {
         System.out.println(paramMap);
-        //int totalCnt =  noticeService.noticeCnt(paramMap);
-
+//        int currentPage = Integer.parseInt((String)paramMap.get("currentPage"));
+//        int pageSize = Integer.parseInt((String)paramMap.get("pageSize"));
+//        int pageIndex = (currentPage - 1)*pageSize; //페이지 시작  row번호
+//
+//        paramMap.put("pageIndex", pageIndex);
+//        paramMap.put("pageSize", pageSize);
+//        int totalCnt =  noticeService.noticeCnt(paramMap);
+//        System.out.println(paramMap);
         model.addAttribute("li", noticeService.noticeList(paramMap));
+        return "notice";
+    }
+    //공지검색
+    @RequestMapping("/noticeSearch.do")
+    public String noticeSearch(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request)throws Exception{
+        System.out.println(paramMap);
+        model.addAttribute("li", noticeService.noticeSearch(paramMap));
+
         return "notice";
     }
 
