@@ -28,7 +28,7 @@ public class NoticeController {
 
     @RequestMapping("/noticeList.do")
     public String noticeList(Model model, @RequestParam Map<String, Object> paramMap) throws Exception {
-        System.out.println(paramMap);
+
 //        int currentPage = Integer.parseInt((String)paramMap.get("currentPage"));
 //        int pageSize = Integer.parseInt((String)paramMap.get("pageSize"));
 //        int pageIndex = (currentPage - 1)*pageSize; //페이지 시작  row번호
@@ -38,6 +38,7 @@ public class NoticeController {
 //        int totalCnt =  noticeService.noticeCnt(paramMap);
 //        System.out.println(paramMap);
         model.addAttribute("li", noticeService.noticeList(paramMap));
+        System.out.println(model);
         return "notice";
     }
     //공지검색
