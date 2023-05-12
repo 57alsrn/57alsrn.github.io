@@ -26,6 +26,15 @@
 		ORDER BY NOT_CODE desc
 	</select>
 
+	<!--공지사항 페이징-->
+	<select id = "noticeListCnt" resultType = "int">
+		select
+			count(*) cnt
+		from NOTICE
+		where 1=1
+		ORDER BY NOT_CODE
+	</select>
+
 <!--공직사항 등록-->
 	<insert id="noticeSubmit" >
 	insert into NOTICE

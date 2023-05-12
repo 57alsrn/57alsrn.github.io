@@ -17,6 +17,12 @@ public class NoticeService {
         return  noticeMapper.noticeList(paramMap);
 
     }
+
+    // 페이징처리
+    public int noticeListCnt(Map<String, Object> paramMap) throws Exception {
+        return  noticeMapper.noticeListCnt(paramMap);
+
+    }
     public void noticeSubmit(Map<String, Object> paramMap) throws Exception {
          noticeMapper.noticeSubmit(paramMap);
 

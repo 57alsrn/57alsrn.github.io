@@ -24,6 +24,13 @@ public class NoticeController {
         return "notice";
     }
 
+    @RequestMapping("/noticeCnt.do")
+    String noticeCnt(Model model, @RequestParam Map<String, Object> paramMap) throws Exception {
+        model.addAttribute("cnt", noticeService.noticeListCnt(paramMap));
+        System.out.println(model);
+        return "notice";
+    }
+
     @RequestMapping("/noticeReg.do")
     String noticeReg(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request){
         //model.addAttribute("li", service.Select(vo));

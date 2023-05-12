@@ -12,6 +12,9 @@ repositories {
 	mavenCentral()
 }
 apply plugin: 'war'
+configurations {
+	providedRuntime
+}
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
@@ -23,9 +26,11 @@ dependencies {
 	implementation 'org.apache.maven.plugins:maven-jar-plugin:3.2.0'
 	implementation 'org.springframework.boot:spring-boot-maven-plugin:2.3.0.RELEASE'
 
+
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	//runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 //tasks.named('test')
