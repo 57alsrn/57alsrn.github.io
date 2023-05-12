@@ -63,12 +63,14 @@
   }
   function sList(){
     let sName = $('#sName').val();
+    let sSelect = $('#sSelect').val();
     $.ajax({
       url       : "/noticeSearch.do"
       , type    : "post"
       , dataType: "text"
       , data    : {
         sName  : sName
+        ,sSelect : sSelect
       }
       , success : function (data) {
         console.log(data)
@@ -120,11 +122,11 @@
 
     </table>
     <div style="text-align: center">
-        <select  name = ch1>
+        <select  id="sSelect"  name = ch1>
           <option value = "title"> 제 목 </option>
-          <option value = "pname"> 상품이름 </option>
+<%--          <option value = "pname"> 상품이름 </option>--%>
         </select>
-        <input type = text id="sName" name = ch2>
+        <input type = text id="sName" name = n2>
 
       <input class="btn btn-dark" type = submit  onclick="sList();" value ="검색하기">
       <br>

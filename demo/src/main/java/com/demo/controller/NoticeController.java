@@ -45,6 +45,7 @@ public class NoticeController {
     public String noticeSearch(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request)throws Exception{
         System.out.println(paramMap);
         model.addAttribute("li", noticeService.noticeSearch(paramMap));
+        System.out.println(model);
 
         return "notice";
     }

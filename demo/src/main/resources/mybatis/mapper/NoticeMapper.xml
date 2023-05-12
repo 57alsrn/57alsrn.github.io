@@ -37,7 +37,7 @@
 	,NOT_VIEW
 	from NOTICE
 	where 1=1
-	AND WHERE content LIKE '%' || #{searchName} || '%'
+	AND NOT_TITLE LIKE '%' || #{sName} || '%'
 	ORDER BY NOT_CODE desc
 </select>
 
