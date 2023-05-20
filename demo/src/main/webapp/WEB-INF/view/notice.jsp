@@ -25,7 +25,7 @@
 
   //onLoad event
   $(function (){
-    noticeList();
+    // noticeList();
 
   })
 
@@ -42,7 +42,7 @@
 
     $.ajax({
       url       : "/noticeList.do"
-      , type    : "post"
+      , type    : "get"
       , dataType: "text"
       , data    : {
         currentPage  : pageNum
@@ -63,26 +63,25 @@
     })
   }
   function sList(){
+
+    $('#sFrom').submit();
+
+    return false;
     let sName = $('#sName').val();
     let sSelect = $('#sSelect').val();
-    $.ajax({
-      url       : "/noticeSearch.do"
-      , type    : "post"
-      , dataType: "text"
-      , data    : {
-        sName  : sName
-        ,sSelect : sSelect
-      }
-      , success : function (data) {
-        console.log(data)
 
-      }
-      , error   : function () {
-        alert('검색실패')
-      }
+    var data = {
+      sName: sName,
+      sSelect: sSelect
+    };
 
+    // URL 매개변수(query parameter) 생성
+    var queryString = Object.keys(data).map(function(key) {
+      return key + '=' + encodeURIComponent(data[key]);
+    }).join('&');
 
-    })
+    // GET 요청 보내기
+    window.location.href = '/noticeSearch.do?' + queryString;
   }
 
 </script>
@@ -111,31 +110,34 @@
 
         <tr class="table-light text-center">
           <td>${l.NOT_CODE}</td>
-<%--          <td><a href=${path}/pd_detail.do?pcode=${m.pcode}> ${m.title } </a></td>--%>
+            <%--          <td><a href=${path}/pd_detail.do?pcode=${m.pcode}> ${m.title } </a></td>--%>
           <td>${l.NOT_TITLE }</td>
           <td>${l.DAY }</td>
 
-<%--          <td><img src="${path}/product/files/${m.img}" width=35  height=35--%>
-<%--                   onclick="window.open(this.src)"/></td>--%>
+            <%--          <td><img src="${path}/product/files/${m.img}" width=35  height=35--%>
+            <%--                   onclick="window.open(this.src)"/></td>--%>
         </tr>
 
       </c:forEach>
 
     </table>
-    <div style="text-align: center">
-        <select  id="sSelect"  name = ch1>
+    <form id="sFrom" action="/noticeSearch.do" method="get">
+      <div style="text-align: center">
+
+        <select  id="sSelect"  name = sSelect>
           <option value = "title"> 제 목 </option>
-<%--          <option value = "pname"> 상품이름 </option>--%>
+          <%--          <option value = "pname"> 상품이름 </option>--%>
         </select>
-        <input type = text id="sName" name = n2>
+        <input type = text id="sName" name = sName>
 
-      <input class="btn btn-dark" type = submit  onclick="sList();" value ="검색하기">
-      <br>
-      <c:if test="${id.ADMIN eq 1}">
-        <input class="btn text-black bg-white btn-outline-secondary" onclick="location.href='/noticeReg.do'" value ="등록하기">
-      </c:if>
-    </div>
+        <input class="btn btn-dark" type = submit  onclick="sList();" value ="검색하기">
+        <br>
 
+      </div>
+    </form>
+    <c:if test="${id.ADMIN eq 1}">
+      <input class="btn text-black bg-white btn-outline-secondary" onclick="location.href='/noticeReg.do'" value ="등록하기">
+    </c:if>
   </div>
 </section>
 <!-- Footer-->

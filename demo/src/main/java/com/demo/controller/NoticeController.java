@@ -1,17 +1,13 @@
 package com.demo.controller;
 
 import com.demo.service.NoticeService;
-import com.demo.vo.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -22,7 +18,10 @@ public class NoticeController {
     NoticeService noticeService;
 
     @RequestMapping("/notice.do")
-    public String notice(){
+    public String notice(Model model,@RequestParam Map<String, Object> paramMap) throws Exception {
+
+        model.addAttribute("li", noticeService.noticeList(paramMap));
+
         return "notice";
     }
 
@@ -36,18 +35,16 @@ public class NoticeController {
 //        paramMap.put("pageIndex", pageIndex);
 //        paramMap.put("pageSize", pageSize);
 //        int totalCnt =  noticeService.noticeCnt(paramMap);
-//        System.out.println(paramMap);
+        System.out.println(paramMap);
         model.addAttribute("li", noticeService.noticeList(paramMap));
         System.out.println(model);
-        return "notice";
+        return "/notice";
     }
     //공지검색
     @RequestMapping("/noticeSearch.do")
     public String noticeSearch(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request)throws Exception{
-        System.out.println(paramMap);
-        model.addAttribute("li", noticeService.noticeSearch(paramMap));
-        System.out.println(model);
 
+        model.addAttribute("li", noticeService.noticeSearch(paramMap));
         return "notice";
     }
 
