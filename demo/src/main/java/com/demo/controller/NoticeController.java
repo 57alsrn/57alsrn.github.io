@@ -22,7 +22,7 @@ public class NoticeController {
 
         model.addAttribute("li", noticeService.noticeList(paramMap));
 
-        return "notice";
+        return "notice/notice";
     }
 
     @RequestMapping("/noticeList.do")
@@ -38,21 +38,21 @@ public class NoticeController {
         System.out.println(paramMap);
         model.addAttribute("li", noticeService.noticeList(paramMap));
         System.out.println(model);
-        return "/notice";
+        return "notice/notice";
     }
     //공지검색
     @RequestMapping("/noticeSearch.do")
     public String noticeSearch(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request)throws Exception{
 
         model.addAttribute("li", noticeService.noticeSearch(paramMap));
-        return "notice";
+        return "notice/notice";
     }
 
     @RequestMapping("/noticeReg.do")
     public String noticeReg(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request){
         //model.addAttribute("li", service.Select(vo));
 
-        return "noticeReg";
+        return "notice/noticeReg";
     }
 
     @RequestMapping("/noticeSubmit.do")

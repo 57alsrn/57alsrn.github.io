@@ -30,15 +30,15 @@ public class UserController {
 
     // 메인페이지 로딩
     @RequestMapping("/")
-    public String Index() {
+    public String index() {
 
 
-        return "index";
+        return "views/index";
     }
     // 로그인 성공시
     @RequestMapping("/main.do")
     public String Main(){
-        return "../System/main";
+        return "/System/main";
     }
 
     //아이디 중복체크
@@ -104,7 +104,7 @@ public class UserController {
         HttpSession  session = request.getSession();
         // 세션 제거
         session.invalidate();
-        return "index";
+        return "views/index";
     }
 
 

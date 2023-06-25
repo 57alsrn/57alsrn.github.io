@@ -56,7 +56,10 @@
                 <a class="nav-link" href="/notice.do">Notice</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/pd_list.do">List</a>
+                <a class="nav-link" href="/pdList.do">List</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/test.do">Test</a>
             </li>
 
         </ul>
